@@ -1,0 +1,11 @@
+{
+  "name": "code_sponsor",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.2.2",
+    "stimulus": "^1.0.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.11.1"
+  }
+}
