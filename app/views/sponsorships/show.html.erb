@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @sponsorship.token %>
+</p>
+
+<p>
+  <strong>Bid amount cents:</strong>
+  <%= @sponsorship.bid_amount_cents %>
+</p>
+
+<%= link_to 'Edit', edit_sponsorship_path(@sponsorship) %> |
+<%= link_to 'Back', sponsorships_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @campaign.name %>
+</p>
+
+<p>
+  <strong>Daily budget cents:</strong>
+  <%= @campaign.daily_budget_cents %>
+</p>
+
+<p>
+  <strong>Monthly budget cents:</strong>
+  <%= @campaign.monthly_budget_cents %>
+</p>
+
+<p>
+  <strong>Total budget cents:</strong>
+  <%= @campaign.total_budget_cents %>
+</p>
+
+<p>
+  <strong>Bid amount cents:</strong>
+  <%= @campaign.bid_amount_cents %>
+</p>
+
+<p>
+  <strong>Redirect url:</strong>
+  <%= @campaign.redirect_url %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @campaign.status %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>
