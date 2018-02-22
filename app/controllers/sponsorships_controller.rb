@@ -29,7 +29,7 @@ class SponsorshipsController < ApplicationController
 
     respond_to do |format|
       if @sponsorship.save
-        format.html { redirect_to @sponsorship, notice: 'Sponsorship was successfully created.' }
+        format.html { redirect_to @sponsorship, notice: "Sponsorship was successfully created." }
         format.json { render :show, status: :created, location: @sponsorship }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class SponsorshipsController < ApplicationController
   def update
     respond_to do |format|
       if @sponsorship.update(sponsorship_params)
-        format.html { redirect_to @sponsorship, notice: 'Sponsorship was successfully updated.' }
+        format.html { redirect_to @sponsorship, notice: "Sponsorship was successfully updated." }
         format.json { render :show, status: :ok, location: @sponsorship }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SponsorshipsController < ApplicationController
   def destroy
     @sponsorship.destroy
     respond_to do |format|
-      format.html { redirect_to sponsorships_url, notice: 'Sponsorship was successfully destroyed.' }
+      format.html { redirect_to sponsorships_url, notice: "Sponsorship was successfully destroyed." }
       format.json { head :no_content }
     end
   end

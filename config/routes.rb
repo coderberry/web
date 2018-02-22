@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'properties/index'
-  get 'properties/show'
-  get 'properties/new'
-  get 'properties/edit'
+  get "properties/index"
+  get "properties/show"
+  get "properties/new"
+  get "properties/edit"
   devise_for :users, path: "auth", path_names: {
     sign_in: "login",
     sign_out: "logout",

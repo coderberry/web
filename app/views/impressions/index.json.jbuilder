@@ -1,1 +1,1 @@
-json.array! @impressions, partial: 'impressions/impression', as: :impression
+json.array! @impressions, partial: "impressions/impression", as: :impression

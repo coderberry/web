@@ -29,7 +29,7 @@ class ImpressionsController < ApplicationController
 
     respond_to do |format|
       if @impression.save
-        format.html { redirect_to @impression, notice: 'Impression was successfully created.' }
+        format.html { redirect_to @impression, notice: "Impression was successfully created." }
         format.json { render :show, status: :created, location: @impression }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ImpressionsController < ApplicationController
   def update
     respond_to do |format|
       if @impression.update(impression_params)
-        format.html { redirect_to @impression, notice: 'Impression was successfully updated.' }
+        format.html { redirect_to @impression, notice: "Impression was successfully updated." }
         format.json { render :show, status: :ok, location: @impression }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ImpressionsController < ApplicationController
   def destroy
     @impression.destroy
     respond_to do |format|
-      format.html { redirect_to impressions_url, notice: 'Impression was successfully destroyed.' }
+      format.html { redirect_to impressions_url, notice: "Impression was successfully destroyed." }
       format.json { head :no_content }
     end
   end

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ClicksControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class ClicksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create click" do
-    assert_difference('Click.count') do
+    assert_difference("Click.count") do
       post clicks_url, params: { click: { ip: @click.ip } }
     end
 
@@ -39,7 +39,7 @@ class ClicksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy click" do
-    assert_difference('Click.count', -1) do
+    assert_difference("Click.count", -1) do
       delete click_url(@click)
     end
 

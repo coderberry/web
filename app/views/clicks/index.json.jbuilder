@@ -1,1 +1,1 @@
-json.array! @clicks, partial: 'clicks/click', as: :click
+json.array! @clicks, partial: "clicks/click", as: :click

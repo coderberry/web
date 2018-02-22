@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class PropertiesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class PropertiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create property" do
-    assert_difference('Property.count') do
+    assert_difference("Property.count") do
       post properties_url, params: { property: { name: @property.name, url: @property.url } }
     end
 
@@ -39,7 +39,7 @@ class PropertiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy property" do
-    assert_difference('Property.count', -1) do
+    assert_difference("Property.count", -1) do
       delete property_url(@property)
     end
 

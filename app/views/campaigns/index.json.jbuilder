@@ -1,1 +1,1 @@
-json.array! @campaigns, partial: 'campaigns/campaign', as: :campaign
+json.array! @campaigns, partial: "campaigns/campaign", as: :campaign

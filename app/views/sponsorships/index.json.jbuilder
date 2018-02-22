@@ -1,1 +1,1 @@
-json.array! @sponsorships, partial: 'sponsorships/sponsorship', as: :sponsorship
+json.array! @sponsorships, partial: "sponsorships/sponsorship", as: :sponsorship

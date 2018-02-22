@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class CampaignsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create campaign" do
-    assert_difference('Campaign.count') do
+    assert_difference("Campaign.count") do
       post campaigns_url, params: { campaign: { bid_amount_cents: @campaign.bid_amount_cents, daily_budget_cents: @campaign.daily_budget_cents, monthly_budget_cents: @campaign.monthly_budget_cents, name: @campaign.name, redirect_url: @campaign.redirect_url, status: @campaign.status, total_budget_cents: @campaign.total_budget_cents } }
     end
 
@@ -39,7 +39,7 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy campaign" do
-    assert_difference('Campaign.count', -1) do
+    assert_difference("Campaign.count", -1) do
       delete campaign_url(@campaign)
     end
 

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class SponsorshipsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class SponsorshipsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create sponsorship" do
-    assert_difference('Sponsorship.count') do
+    assert_difference("Sponsorship.count") do
       post sponsorships_url, params: { sponsorship: { bid_amount_cents: @sponsorship.bid_amount_cents, token: @sponsorship.token } }
     end
 
@@ -39,7 +39,7 @@ class SponsorshipsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy sponsorship" do
-    assert_difference('Sponsorship.count', -1) do
+    assert_difference("Sponsorship.count", -1) do
       delete sponsorship_url(@sponsorship)
     end
 

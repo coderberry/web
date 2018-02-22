@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ImpressionsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class ImpressionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create impression" do
-    assert_difference('Impression.count') do
+    assert_difference("Impression.count") do
       post impressions_url, params: { impression: { ip: @impression.ip } }
     end
 
@@ -39,7 +39,7 @@ class ImpressionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy impression" do
-    assert_difference('Impression.count', -1) do
+    assert_difference("Impression.count", -1) do
       delete impression_url(@impression)
     end
 
