@@ -1,26 +1,53 @@
-<h2>Log in</h2>
+<% content_for :extra_body_classes { "app flex-row align-items-center" } %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card-group">
+        <div class="card p-4">
+          <div class="card-body">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <h1>Login</h1>
+              <p class="text-muted">Sign In to your account</p>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fal fa-envelope"></i></span>
+                </div>
+                <%= f.email_field :email, placeholder: "Email", class: "form-control", autofocus: true %>
+              </div>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fal fa-lock"></i></span>
+                </div>
+                <%= f.password_field :password, placeholder: "Password", class: "form-control", autocomplete: "off" %>
+              </div>
+              <% if devise_mapping.rememberable? -%>
+                <div class="input-group mb-4">
+                  <div class="form-check">
+                    <%= f.check_box :remember_me, class: "form-check-input" %>
+                    <%= f.label :remember_me, class: "form-check-label" %>
+                  </div>
+                </div>
+              <% end -%>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+              <%= f.submit "Login", class: "btn btn-primary px-4" %>
+            <% end %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+            <div class="mt-2">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+        <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+          <div class="card-body text-center">
+            <div>
+              <h2>Sign up</h2>
+              <p>If you want to become a sponsor or would like to have your OSS projects sponsored, this is where you start.</p>
+              <%= link_to "Register Now", new_user_registration_path, class: "btn btn-primary active mt-3" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

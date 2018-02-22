@@ -9,4 +9,9 @@ module ApplicationHelper
       "#{controller_path.gsub("_", "-").gsub("/", "__")}__#{action_name.gsub("_", "-")}"
     ].uniq.compact.join(" ")
   end
+
+  def favicon_image_from_url(url)
+    domain = url.gsub(/^https?:\/\//, "")
+    "//www.google.com/s2/favicons?domain=#{domain}"
+  end
 end

@@ -1,29 +1,37 @@
-<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Home</li>
+  <li class="breadcrumb-item active">Properties</li>
+  <li class="breadcrumb-menu">
+    <div class="btn-group" role="group">
+      <%= link_to new_property_path, class: "btn" do %>
+        <%= icon "fas", "plus" %>
+        Add Property
+      <% end %>
+    </div>
+  </li>
+</ol>
 
-<h1>Properties</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container-fluid">
+  <div class="row">
     <% @properties.each do |property| %>
-      <tr>
-        <td><%= property.name %></td>
-        <td><%= property.url %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="card">
+          <div class="chart-wrapper px-0" style="height: 70px;">
+            <div class="chart-wrapper" style="height:70px;">
+              <canvas id="card-chart3" class="chart chart-line" height="70"></canvas>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%#= image_tag favicon_image_from_url(property.url) %>
+              <%= property.name %>
+            </h5>
+            <!-- <p class="card-text">Description...</p> -->
+            <%= link_to "Details", property, class: "card-link" %>
+            <%= link_to "Visit", property.url, class: "card-link", target: "_blank" %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Property', new_property_path %>
+  </div>
+</div>

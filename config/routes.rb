@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get "properties/index"
-  get "properties/show"
-  get "properties/new"
-  get "properties/edit"
   devise_for :users, path: "auth", path_names: {
     sign_in: "login",
     sign_out: "logout",
@@ -11,6 +7,17 @@ Rails.application.routes.draw do
     unlock: "unblock",
     registration: "register"
   }
+
+  resources :properties
+  resources :sponsors, only: [:index]
+  resources :campaigns
+  resources :sponsorships
+  resources :clicks
+  resources :impressions
+
+  authenticated :user do
+    root to: "dashboard#index"
+  end
 
   root to: "home#index"
 end

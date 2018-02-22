@@ -24,6 +24,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_link_to (1.0.5)
+      actionpack
+      addressable
     activejob (5.2.0.rc1)
       activesupport (= 5.2.0.rc1)
       globalid (>= 0.3.6)
@@ -94,6 +97,8 @@ GEM
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.21)
+    font-awesome-sass (5.0.6)
+      sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
@@ -278,6 +283,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to (= 1.0.5)
   annotate
   awesome_print
   bootsnap (= 1.1.8)
@@ -286,6 +292,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (= 4.2.2)
   devise (= 4.3.0)
+  font-awesome-sass (= 5.0.6)
   jbuilder (= 2.7.0)
   listen (>= 3.0.5, < 3.2)
   minitest-reporters

@@ -1,14 +1,29 @@
-<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Home</li>
+  <li class="breadcrumb-item"><%= link_to "Properties", properties_path %></li>
+  <li class="breadcrumb-item active"><%= @property.name %></li>
+  <li class="breadcrumb-menu">
+    <div class="btn-group" role="group">
+      <%= link_to new_property_path, class: "btn" do %>
+        <%= icon "fas", "edit" %>
+        Edit Property
+      <% end %>
+    </div>
+  </li>
+</ol>
 
-<p>
-  <strong>Name:</strong>
-  <%= @property.name %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @property.url %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-responsive-sm">
+        <thead>
+        <tbody>
+          <tr>
+            <th>Samppa Nori</th>
+            <td>2012/01/01</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -13,15 +13,76 @@
 
     <%= yield :head %>
   </head>
+
   <%= content_tag :body,
         class: "app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden #{ body_class } #{ yield :extra_body_classes }",
         data: {
           environment: Rails.env,
           flash: flash.to_json
         } do %>
-    
-    <%= yield %>
-    
+
+    <header class="app-header navbar">
+      <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="nav navbar-nav d-md-down-none mr-auto">
+      </ul>
+    </header>
+
+    <div class="app-body">
+      <div class="sidebar">
+        <nav class="sidebar-nav">
+          <ul class="nav">
+            <li class="nav-item">
+              <%= active_link_to root_path, class: "nav-link", active: :exclusive do %>
+                <span class="fa-wrapper"><%= icon("fas", "tachometer-alt") %></span>
+                Dashboard
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= active_link_to properties_path, class: "nav-link" do %>
+                <span class="fa-wrapper"><%= icon("fas", "globe") %></span>
+                Properties
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= active_link_to sponsors_path, class: "nav-link" do %>
+                <span class="fa-wrapper"><%= icon("fas", "handshake") %></i></span>
+                Sponsors
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= active_link_to campaigns_path, class: "nav-link" do %>
+                <span class="fa-wrapper"><%= icon("fas", "bullhorn") %></span>
+                Campaigns
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= active_link_to "/distributions", class: "nav-link" do %>
+                <span class="fa-wrapper"><%= icon("fas", "money-bill-alt") %></span>
+                Distributions
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= active_link_to edit_user_registration_path, class: "nav-link" do %>
+                <span class="fa-wrapper"><%= icon("fas", "user") %></span>
+                Profile
+              <% end %>
+            </li>
+          </ul>
+        </nav>
+        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+      </div>
+      <!-- Main content -->
+      <main class="main">
+        <%= yield %>
+      </main>
+    </div>
+
     <footer class="app-footer">
       <span>&copy; 2018 <a href="https://consensys.net">Consensus Systems</a></span>
       <span class="ml-auto">Powered by <a href="https://github.com/codesponsor/code_sponsor">Open Source</a></span>
