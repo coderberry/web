@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_02_21_232937) do
   create_table "campaigns", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id"
     t.string "name", default: "", null: false
+    t.text "description"
     t.integer "daily_budget_cents", default: 0, null: false
     t.integer "monthly_budget_cents", default: 0, null: false
     t.integer "total_budget_cents", default: 0, null: false

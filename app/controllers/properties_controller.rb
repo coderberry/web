@@ -5,21 +5,59 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
+    @breadcrumbs = {
+      items: [
+        ["Home", nil],
+        ["Properties", nil]
+      ],
+      actions: [
+        ["Add Property", new_property_path, "plus"]
+      ]
+    }
     @properties = Property.all
   end
 
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @breadcrumbs = {
+      items: [
+        ["Home", nil],
+        ["Properties", properties_path],
+        [@property.name, nil]
+      ],
+      actions: [
+        ["Edit Property", edit_property_path(@property), "edit"]
+      ]
+    }
   end
 
   # GET /properties/new
   def new
+    @breadcrumbs = {
+      items: [
+        ["Home", nil],
+        ["Properties", properties_path],
+        ["Add Property", nil]
+      ],
+      actions: [
+      ]
+    }
     @property = Property.new
   end
 
   # GET /properties/1/edit
   def edit
+    @breadcrumbs = {
+      items: [
+        ["Home", nil],
+        ["Properties", properties_path],
+        [@property.name, property_path(@property)],
+        ["Edit Property", nil]
+      ],
+      actions: [
+      ]
+    }
   end
 
   # POST /properties

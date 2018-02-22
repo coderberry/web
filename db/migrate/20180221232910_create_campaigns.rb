@@ -3,6 +3,7 @@ class CreateCampaigns < ActiveRecord::Migration[5.2]
     create_table :campaigns, id: :uuid do |t|
       t.references :user, foreign_key: true, type: :uuid
       t.string :name, null: false, default: ""
+      t.text :description
       t.integer :daily_budget_cents, default: 0, null: false
       t.integer :monthly_budget_cents, default: 0, null: false
       t.integer :total_budget_cents, default: 0, null: false

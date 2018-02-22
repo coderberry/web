@@ -10,3 +10,18 @@ body.sidebar-minimized {
     margin-left: 18px;
   }
 }
+
+.has-invalid {
+  .invalid-feedback {
+    display: block;
+  }
+
+  label {
+    color: theme-color('danger');
+  }
+
+  .form-control {
+    background: theme-color-level('danger', -10);
+    border-color: theme-color('danger');
+  }
+}

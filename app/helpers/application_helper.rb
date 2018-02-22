@@ -14,4 +14,9 @@ module ApplicationHelper
     domain = url.gsub(/^https?:\/\//, "")
     "//www.google.com/s2/favicons?domain=#{domain}"
   end
+
+  def breadcrumbs
+    return "" unless @breadcrumbs.present?
+    component("breadcrumbs", items: @breadcrumbs[:items], actions: @breadcrumbs[:actions])
+  end
 end

@@ -1,0 +1,23 @@
+<ol data-controller="breadcrumbs" class="breadcrumb">
+  <% @items.each.with_index do |item, idx| -%>
+    <% if idx == @items.count - 1 -%>
+      <li class="breadcrumb-item active"><%= item[0] %></li>
+    <% elsif item[1].blank? %>
+      <li class="breadcrumb-item"><%= item[0] %></li>
+    <% else -%>
+      <li class="breadcrumb-item"><%= link_to item[0], item[1] %></li>
+    <% end -%>
+  <% end -%>
+  <% if @actions.present? %>
+    <li class="breadcrumb-menu">
+      <div class="btn-group" role="group">
+        <% @actions.each do |act| %>
+          <%= link_to act[1], class: "btn" do %>
+            <%= icon "fas", act[2] %>
+            <%= act[0] %>
+          <% end %>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ol>
