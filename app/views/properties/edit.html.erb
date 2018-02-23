@@ -1,3 +1,14 @@
+<%= breadcrumbs({
+  items: [
+    ["Home", nil],
+    ["Properties", properties_path],
+    [@property.name, property_path(@property)],
+    ["Edit Property", nil]
+  ],
+  actions: [
+  ]
+}) %>
+
 <div class="container-fluid">
   <%= render 'form', property: @property %>
 </div>

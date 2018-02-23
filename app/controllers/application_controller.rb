@@ -24,12 +24,10 @@ class ApplicationController < ActionController::Base
   private
 
     def layout_by_resource
-      if devise_controller? && current_user
+      if current_user
         "application"
-      elsif devise_controller?
-        "home"
       else
-        "application"
+        "home"
       end
     end
 end

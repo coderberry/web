@@ -2,7 +2,8 @@
   <div class="card-body">
     <%= simple_form_for property do |f| %>
       <%= f.input :name %>
-      <%= f.input :url %>
+      <%= f.input :url, placeholder: "https://" %>
+      <%= f.input :description %>
       <%= f.button :submit %>
     <% end %>
   </div>

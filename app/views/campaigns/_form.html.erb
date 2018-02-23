@@ -1,52 +1,31 @@
-<%= form_with(model: campaign, local: true) do |form| %>
-  <% if campaign.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
+<div class="card">
+  <div class="card-body">
+    <%= simple_form_for campaign do |f| %>
+      <%= f.input :name %>
+      <%= f.input :redirect_url %>
+      <%= f.input :status, collection: ::Campaign::STATUSES.map { |k,v| [v.humanize.capitalize, k] }, include_blank: false %>
 
-      <ul>
-      <% campaign.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <%= f.input :daily_budget, wrapper: :vertical_input_group do %>
+        <%= input_group_addon_icon "fas", "dollar-sign" %>
+        <%= f.input_field :daily_budget, class: "form-control" %>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+      <%= f.input :monthly_budget, wrapper: :vertical_input_group do %>
+        <%= input_group_addon_icon "fas", "dollar-sign" %>
+        <%= f.input_field :monthly_budget, class: "form-control" %>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :daily_budget_cents %>
-    <%= form.number_field :daily_budget_cents %>
-  </div>
+      <%= f.input :total_budget, wrapper: :vertical_input_group do %>
+        <%= input_group_addon_icon "fas", "dollar-sign" %>
+        <%= f.input_field :total_budget, class: "form-control" %>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :monthly_budget_cents %>
-    <%= form.number_field :monthly_budget_cents %>
-  </div>
+      <%= f.input :bid_amount, wrapper: :vertical_input_group do %>
+        <%= input_group_addon_icon "fas", "dollar-sign" %>
+        <%= f.input_field :bid_amount, class: "form-control" %>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :total_budget_cents %>
-    <%= form.number_field :total_budget_cents %>
+      <%= f.button :submit %>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :bid_amount_cents %>
-    <%= form.number_field :bid_amount_cents %>
-  </div>
-
-  <div class="field">
-    <%= form.label :redirect_url %>
-    <%= form.text_area :redirect_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -54,6 +54,18 @@ SimpleForm.setup do |config|
     end
   end
 
+  config.wrappers :vertical_input_group, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, class: 'form-control-label'
+
+    b.wrapper :input_group_div, tag: 'div', class:'input-group' do |append|
+      append.use :input, class: 'form-control'
+    end
+    b.use :error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+    b.use :hint,  wrap_with: { tag: 'small', class: 'text-muted form-text' }
+  end
+
   config.wrappers :horizontal_form, tag: 'div', class: 'form-group', error_class: 'has-invalid' do |b|
     b.use :html5
     b.use :placeholder

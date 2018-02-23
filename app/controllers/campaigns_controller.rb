@@ -5,7 +5,7 @@ class CampaignsController < ApplicationController
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.all
+    @campaigns = current_user.campaigns.all
   end
 
   # GET /campaigns/1
@@ -15,7 +15,7 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns/new
   def new
-    @campaign = Campaign.new
+    @campaign = current_user.campaigns.build
   end
 
   # GET /campaigns/1/edit
@@ -25,7 +25,7 @@ class CampaignsController < ApplicationController
   # POST /campaigns
   # POST /campaigns.json
   def create
-    @campaign = Campaign.new(campaign_params)
+    @campaign = current_user.campaigns.build(campaign_params)
 
     respond_to do |format|
       if @campaign.save
@@ -65,11 +65,14 @@ class CampaignsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_campaign
-      @campaign = Campaign.find(params[:id])
+      @campaign = current_user.campaigns.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def campaign_params
-      params.require(:campaign).permit(:name, :daily_budget_cents, :monthly_budget_cents, :total_budget_cents, :bid_amount_cents, :redirect_url, :status)
+      params.require(:campaign).permit(
+        :name, :daily_budget, :monthly_budget, :total_budget, :bid_amount,
+        :redirect_url, :status
+      )
     end
 end

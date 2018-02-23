@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :sponsor_impressions, class_name: "Impression", foreign_key: "sponsor_id"
   has_many :developer_clicks, class_name: "Click", foreign_key: "developer_id"
   has_many :sponsor_clicks, class_name: "Click", foreign_key: "sponsor_id"
+  has_many :properties
+  has_many :campaigns
 
   # validations ...............................................................
   # callbacks .................................................................

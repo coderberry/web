@@ -1,6 +1,14 @@
-<h1>Editing Campaign</h1>
+<%= breadcrumbs({
+  items: [
+    ["Home", nil],
+    ["Campaigns", campaigns_path],
+    [@campaign.name, campaign_path(@campaign)],
+    ["Edit Campaign", nil]
+  ],
+  actions: [
+  ]
+}) %>
 
-<%= render 'form', campaign: @campaign %>
-
-<%= link_to 'Show', @campaign %> |
-<%= link_to 'Back', campaigns_path %>
+<div class="container-fluid">
+  <%= render 'form', campaign: @campaign %>
+</div>

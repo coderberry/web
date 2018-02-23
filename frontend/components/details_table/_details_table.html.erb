@@ -1,0 +1,12 @@
+<div data-controller="details-table" class="details-table">
+  <table class="table table-responsive-sm">
+    <tbody>
+      <% @fields.each do |field| %>
+      <tr>
+        <th><%= field.to_s.humanize.titleize %></th>
+        <td><%= @object.send(field) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

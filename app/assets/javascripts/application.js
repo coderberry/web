@@ -2,6 +2,8 @@
 //= require activestorage
 //= require turbolinks
 
+//= require noty/lib/noty.min.js
+
 //= require ./theme/jquery.min.js
 //= require ./theme/jquery-ui.min.js
 //= require ./theme/jquery.dataTables.min.js

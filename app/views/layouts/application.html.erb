@@ -19,8 +19,7 @@
   <%= content_tag :body,
         class: "app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden #{ body_class } #{ yield :extra_body_classes }",
         data: {
-          environment: Rails.env,
-          flash: flash.to_json
+          environment: Rails.env
         } do %>
 
     <header class="app-header navbar">
@@ -81,7 +80,6 @@
       </div>
       <!-- Main content -->
       <main class="main">
-        <%= breadcrumbs %>
         <%= yield %>
       </main>
     </div>
@@ -90,6 +88,8 @@
       <span>&copy; 2018 <a href="https://consensys.net">Consensus Systems</a></span>
       <span class="ml-auto">Powered by <a href="https://github.com/codesponsor/code_sponsor">Open Source</a></span>
     </footer>
+
+    <%= component "flash", flash: flash %>
 
     <% if ::Rails.env.production? %>
       <script>

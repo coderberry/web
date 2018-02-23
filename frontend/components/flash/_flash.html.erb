@@ -1,0 +1,13 @@
+<div class="flash" data-controller="flash">
+  <script type="text/javascript">
+  <% @flash.each do |alert| %>
+    <% if alert[0] == "error" %>
+      new Noty({ type: 'error', text: '<%= alert[1] %>' }).show();
+    <% elsif alert[0] == "alert" %>
+      new Noty({ type: 'info', text: '<%= alert[1] %>' }).show();
+    <% else %>
+      new Noty({ type: 'success', text: '<%= alert[1] %>' }).show();
+    <% end %>
+  <% end %>
+  </script>
+</div>

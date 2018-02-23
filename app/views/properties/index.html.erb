@@ -1,24 +1,40 @@
+<%= breadcrumbs({
+  items: [
+    ["Home", nil],
+    ["Properties", nil]
+  ],
+  actions: [
+    ["Add Property", new_property_path, "plus"]
+  ]
+}) %>
+
 <div class="container-fluid">
-  <div class="row">
-    <% @properties.each do |property| %>
-      <div class="col-xs-12 col-sm-6 col-lg-3">
-        <div class="card">
-          <div class="chart-wrapper px-0" style="height: 70px;">
-            <div class="chart-wrapper" style="height:70px;">
-              <canvas id="card-chart3" class="chart chart-line" height="70"></canvas>
-            </div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">
-              <%#= image_tag favicon_image_from_url(property.url) %>
-              <%= property.name %>
-            </h5>
-            <!-- <p class="card-text">Description...</p> -->
-            <%= link_to "Details", property, class: "card-link" %>
-            <%= link_to "Visit", property.url, class: "card-link", target: "_blank" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>URL</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @properties.each do |property| %>
+            <tr>
+              <td><%= image_tag favicon_image_from_url(property.url) %></td>
+              <td><%= property.name %></td>
+              <td><%= link_to property.url, property.url, target: "_blank" %></td>
+              <td class="text-right p-2">
+                <%= link_to 'Show', property, class: "btn btn-outline-info btn-sm" %>
+                <%= link_to 'Edit', edit_property_path(property), class: "btn btn-outline-primary btn-sm" %>
+                <%= link_to 'Delete', property, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

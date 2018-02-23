@@ -1,15 +1,20 @@
+<%= breadcrumbs({
+  items: [
+    ["Home", nil],
+    ["Properties", properties_path],
+    [@property.name, nil]
+  ],
+  actions: [
+    ["Edit Property", edit_property_path(@property), "edit"]
+  ]
+}) %>
+
 <div class="container-fluid">
   <div class="card">
     <div class="card-body">
-      <table class="table table-responsive-sm">
-        <thead>
-        <tbody>
-          <tr>
-            <th>Samppa Nori</th>
-            <td>2012/01/01</td>
-          </tr>
-        </tbody>
-      </table>
+      <%= component "details_table",
+                    object: @property,
+                    fields: %i( id name url ) %>
     </div>
   </div>
 </div>
